@@ -10,36 +10,36 @@
 
 
 (defn form []
-  [:form {:role "form" :class "form-horizontal" :method "post"}
-   [:div {:class "form-group"}
-    [:label {:for "stand" :class "control-label col-sm-2"} "Kilometerstand:"]
-    [:div {:class "col-sm-10"}
-     [:input {:type "number" :class "form-control" :id "stand" :name "stand"}]]]
-   [:div {:class "form-group"}
-    [:label {:for "fahrer" :class "control-label col-sm-2"} "Fahrer:"]
-    [:div {:class "col-sm-10"}
-     [:select {:class "form-control" :id "fahrer" :name "fahrer"}
+  [:form.form-horizontal {:role "form" :method "post"}
+   [:div.form-group
+    [:label.control-label.col-sm-2 {:for "stand"} "Kilometerstand:"]
+    [:div.col-sm-10
+     [:input#stand.form-control {:type "number" :name "stand"}]]]
+   [:div.form-group
+    [:label.control-label.col-sm-2 {:for "fahrer"} "Fahrer:"]
+    [:div.col-sm-10
+     [:select#fahrer.form-control {:name "fahrer"}
       [:option "Sonja & Torben"]
       [:option "Jessica & Nils"]
       ]]]
-   [:div {:class "form-group"}
-    [:div {:class "col-sm-offset-2 col-sm-10"}
-     [:input {:type "submit" :class "btn btn-success" :value "eintragen"}]]]])
+   [:div.form-group
+    [:div.col-sm-offset-2.col-sm-10
+     [:input.btn.btn-success {:type "submit" :value "eintragen"}]]]])
 
 
 (defn home [alert]
   (layout/common
-    [:div {:class "container"}
-     [:div {:class "jumbotron"}
-      [:div {:class "container"}
+    [:div.container
+     [:div.jumbotron
+      [:div.container
        [:h1 "Hallo"]
-       [:p {:class "lead"} "Hier können wir die Kilometer aufschreiben"]]]
+       [:p.lead "Hier können wir die Kilometer aufschreiben"]]]
      alert
      ; Hier beginnt das Panel
-     [:div {:class "panel panel-success"}
-      [:div {:class "panel-heading"}
+     [:div.panel.panel-success
+      [:div.panel-heading
        [:h3 "Kilometerstand eintragen"]]
-      [:div {:class "panel-body"}
+      [:div.panel-body
        (form)]]
      ]))
 
