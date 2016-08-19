@@ -1,13 +1,8 @@
 (ns autowg.models.db
-  (:require [clojure.java.jdbc :as sql]))
+  (:require [ragtime.jdbc :as jdbc]))
 
 (def db {:subprotocol "postgresql" :subname "//localhost/autowg" :user "clojure" :password "clojure"})
 
-(defn create-trips-table []
-  (sql/with-connection
-    db
-    (sql/create-table
-      :trips
-      [:id "varchar(32) PRIMARY KEY"]
-      [:mileage "integer"]
-      )))
+(def config
+  {:datastore  (jdbc/sql-database {:connection-uri "jdbc:postgresql://localhost/autowg?user=clojure&password=clojure"})
+   :migrations (jdbc/load-resources "migrations")})
