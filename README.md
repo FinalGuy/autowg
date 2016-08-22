@@ -1,6 +1,6 @@
 # autowg
 
-FIXME
+Little tool helping us to keep track of the trips we take with our shared car. Also my first steps into the Clojure world. :)
 
 ## Prerequisites
 
@@ -16,4 +16,4 @@ To start a web server for the application, run:
 
 ## License
 
-Copyright © 2016 FIXME
+Copyright © 2016 Torben Fojuth
