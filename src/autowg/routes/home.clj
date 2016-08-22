@@ -1,6 +1,7 @@
 (ns autowg.routes.home
   (:require [compojure.core :refer :all]
-            [autowg.views.layout :as layout]))
+            [autowg.views.layout :as layout]
+            [autowg.models.db :as db]))
 
 (defn show-alert [message]
   [:div {:class "alert alert-success alert-dismissible" :role "alert"}
@@ -46,6 +47,7 @@
 (defn neuer-eintrag [stand fahrer]
   (println (str "stand: " stand))
   (println (str "Fahrer: " fahrer))
+  (db/save-trip fahrer stand)
   (home (show-alert "erfolgreich gespeichert")))
 
 (defroutes home-routes
