@@ -6,12 +6,11 @@
             [compojure.handler :as handler]
             [compojure.route :as route]
             [autowg.routes.home :refer [home-routes]]
-            [ragtime.repl :as ragtime]
             [autowg.models.db :as db]))
 
 (defn init []
   (println "autowg is starting")
-  (ragtime/migrate db/config))
+  (db/create-trips-table))
 
 (defn destroy []
   (println "autowg is shutting down"))

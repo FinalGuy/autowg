@@ -1,2 +1,0 @@
-{:up   ["CREATE TABLE trips (id int, mileage int, entered timestamp);"]
- :down ["DROP TABLE trips;"]}
