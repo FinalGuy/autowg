@@ -27,23 +27,49 @@
     [:div.col-sm-offset-2.col-sm-10
      [:input.btn.btn-success {:type "submit" :value "eintragen"}]]]])
 
-
+;
+; GET to "/"
+;
 (defn home [alert]
   (layout/common
     [:div.container
      [:div.jumbotron
       [:div.container
-       [:h1 "Hallo"]
-       [:p.lead "Hier können wir die Kilometer aufschreiben"]]]
+       [:h1 "Die Autoteiler"]
+       [:p.lead "Hier können wir die Kilometer aufschreiben ... "]]]
      alert
      ; Hier beginnt das Panel
-     [:div.panel.panel-success
+     [:div.panel.panel-default
       [:div.panel-heading
        [:h3 "Kilometerstand eintragen"]]
       [:div.panel-body
        (form)]]
+     [:div.panel.panel-default
+      [:div.panel-heading [:h3 "Bisherige Fahrten"]]
+      ;[:div.panel-body "Bislang wurden folgende Fahrten eingetragen:"]
+      [:table.table.table-striped
+       [:thead
+        [:tr
+         [:th "#"]
+         [:th "Name"]
+         [:th "gefahren am"]
+         [:th "Kilometerstand"]]]
+       [:tbody
+        [:tr
+         [:td 1]
+         [:td "Uschi"]
+         [:td "1.1.2017"]
+         [:td "12345"]]
+        [:tr
+         [:td 2]
+         [:td "Kuddel"]
+         [:td "6.1.2017"]
+         [:td "54321"]]]]]
      ]))
 
+;
+; POST to "/"
+;
 (defn neuer-eintrag [stand fahrer]
   (println (str "stand: " stand))
   (println (str "Fahrer: " fahrer))
